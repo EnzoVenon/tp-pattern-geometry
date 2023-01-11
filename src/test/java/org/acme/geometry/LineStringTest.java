@@ -3,7 +3,6 @@ package org.acme.geometry;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
 
 public class LineStringTest {
     public static final double EPSILON = 1.0e-15;
