@@ -5,15 +5,21 @@ import java.util.List;
 
 public class LineString implements Geometry {
     private List<Point> points;
+
+
+
     public LineString(){
         this.points = new ArrayList<Point>();
     }
+
     public LineString(List<Point> points){
         this.points = points;
     }
+
     public int getNumPoints(){
         return points.size();
     }
+
     public Point getPointN(int n){
         return points.get(n);
     }
@@ -21,5 +27,15 @@ public class LineString implements Geometry {
     @Override
     public String getType() {
         return "LineString";
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for(int i=0; i<this.points.size(); i++) {
+            if(points.get(i).isEmpty()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

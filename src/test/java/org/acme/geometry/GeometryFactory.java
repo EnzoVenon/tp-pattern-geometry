@@ -3,7 +3,9 @@ package org.acme.geometry;
 import java.util.ArrayList;
 
 public class GeometryFactory {
+
     public GeometryFactory(){}
+    
     public Point examplePoint(){
         return new Point(new Coordinate(3.14, 5));
     }
