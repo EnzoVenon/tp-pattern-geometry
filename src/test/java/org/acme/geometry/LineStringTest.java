@@ -6,11 +6,13 @@ import org.junit.Test;
 
 public class LineStringTest {
     public static final double EPSILON = 1.0e-15;
+
     @Test
     public void testDefaultConstructor(){
         LineString l = new LineString();
         Assert.assertEquals(0, l.getNumPoints(), EPSILON);
     }
+    
     @Test
     public void testConstructor(){
         GeometryFactory fact = new GeometryFactory();
