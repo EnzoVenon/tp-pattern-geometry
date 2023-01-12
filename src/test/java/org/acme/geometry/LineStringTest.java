@@ -18,9 +18,11 @@ public class LineStringTest {
     public void testConstructor(){
         GeometryFactory fact = new GeometryFactory();
         LineString l = fact.exampleLineString(4);
+        Envelope e = l.getEnvelope();
         Assert.assertEquals(4, l.getNumPoints(), EPSILON);
         Assert.assertEquals(3.14, l.getPointN(2).getCoordinate().getX(), EPSILON);
         Assert.assertEquals(5, l.getPointN(2).getCoordinate().getY(), EPSILON);
+        Assert.assertEquals(3.14, e.getXmin(), EPSILON);
     }
 
     @Test

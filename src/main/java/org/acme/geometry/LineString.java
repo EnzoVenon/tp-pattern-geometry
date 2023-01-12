@@ -49,4 +49,13 @@ public class LineString implements Geometry {
         }  
         return new LineString(l);
     }
+
+    @Override
+    public Envelope getEnvelope(){
+        EnvelopeBuilder b = new EnvelopeBuilder();
+        for(Point p: points){
+            b.insert(p.getCoordinate());
+        }
+        return b.build();
+    }
 }

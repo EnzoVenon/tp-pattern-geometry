@@ -18,8 +18,10 @@ public class PointTest {
     public void testConstructor(){
         GeometryFactory fact = new GeometryFactory();
         Point p = fact.examplePoint();
+        Envelope e = p.getEnvelope();
         Assert.assertEquals(3.14, p.getCoordinate().getX(), EPSILON);
         Assert.assertEquals(5.0, p.getCoordinate().getY(), EPSILON);
+        Assert.assertEquals(3.14, e.getXmin(), EPSILON);
     }
 
     @Test
