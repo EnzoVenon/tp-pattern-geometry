@@ -22,6 +22,6 @@ public class Coordinate {
     }
 
     public boolean isEmpty(){
-        return Double.isNaN(this.x);
+        return Double.isNaN(this.x) || Double.isNaN(this.y);
     }
 }

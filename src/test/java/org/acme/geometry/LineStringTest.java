@@ -28,4 +28,13 @@ public class LineStringTest {
         LineString l = new LineString();
         Assert.assertEquals("LineString", l.getType());
     }
+
+    @Test
+    public void testTranslate(){
+        GeometryFactory fact = new GeometryFactory();
+        LineString l = fact.exampleLineString(4);
+        l.translate(1, 3.25);
+        Assert.assertEquals(4.14, l.getPointN(2).getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(8.25, l.getPointN(2).getCoordinate().getY(), EPSILON);
+    }
 }

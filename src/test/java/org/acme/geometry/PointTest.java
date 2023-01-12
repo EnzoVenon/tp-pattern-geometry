@@ -26,4 +26,13 @@ public class PointTest {
         Point p = new Point();
         Assert.assertEquals("Point", p.getType());
     }
+
+    @Test
+    public void testTranslate(){
+        GeometryFactory fact = new GeometryFactory();
+        Point p = fact.examplePoint();
+        p.translate(1, 3.25);
+        Assert.assertEquals(4.14, p.getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(8.25, p.getCoordinate().getY(), EPSILON);
+    }
 }
