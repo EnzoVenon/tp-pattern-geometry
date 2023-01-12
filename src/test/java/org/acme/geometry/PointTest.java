@@ -11,6 +11,7 @@ public class PointTest {
         Point p = new Point();
         Assert.assertEquals(true, Double.isNaN(p.getCoordinate().getX()));
         Assert.assertEquals(true, Double.isNaN(p.getCoordinate().getY()));
+        Assert.assertEquals(true, p.isEmpty());
     }
 
     @Test
@@ -41,8 +42,8 @@ public class PointTest {
         GeometryFactory fact = new GeometryFactory();
         Point p1 = fact.examplePoint();
         Point p2 = p1.clone();
-        p2.translate(1, 3.25);
-        Assert.assertEquals(3.14, p1.getCoordinate().getX(), EPSILON);
-        Assert.assertEquals(5, p1.getCoordinate().getY(), EPSILON);
+        p1.translate(1, 3.25);
+        Assert.assertEquals(3.14, p2.getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(5, p2.getCoordinate().getY(), EPSILON);
     }
 }
