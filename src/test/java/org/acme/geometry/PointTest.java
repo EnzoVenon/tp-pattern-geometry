@@ -65,5 +65,6 @@ public class PointTest {
         p.accept(wktVisitor);
         Assert.assertEquals("C'est un point avec x=3.14 et y=5.0", os.toString("UTF8").trim());
         Assert.assertEquals("POINT(3.14 5.0)", wktVisitor.getResult());
+        Assert.assertEquals("POINT(3.14 5.0)", p.asText());
     }
 }

@@ -66,5 +66,6 @@ public class LineStringTest {
         l.accept(wktVisitor);
         Assert.assertEquals("Je suis une polyligne de 2 points.", os.toString("UTF8").trim());
         Assert.assertEquals("LINESTRING(3.14 5.0,3.14 5.0)", wktVisitor.getResult());
+        Assert.assertEquals("LINESTRING(3.14 5.0,3.14 5.0)", l.asText());
     }
 }
