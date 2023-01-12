@@ -17,5 +17,6 @@ public class WktWriterTest {
         Assert.assertEquals("LINESTRING(3.14 5.0,3.14 5.0)", writer.write(l1));
         Assert.assertEquals("POINT EMPTY", writer.write(p2));
         Assert.assertEquals("LINESTRING EMPTY", writer.write(l2));
+        //Assert.assertThrows(RuntimeException, writer.write(g))
     }
 }
