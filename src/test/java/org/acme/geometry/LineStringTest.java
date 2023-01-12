@@ -11,6 +11,7 @@ public class LineStringTest {
     public void testDefaultConstructor(){
         LineString l = new LineString();
         Assert.assertEquals(0, l.getNumPoints(), EPSILON);
+        Assert.assertEquals(true, l.isEmpty());
     }
     
     @Test

@@ -9,8 +9,8 @@ public class PointTest {
     @Test
     public void testDefaultConstructor(){
         Point p = new Point();
-        Assert.assertEquals(0.0, p.getCoordinate().getX(), EPSILON);
-        Assert.assertEquals(0.0, p.getCoordinate().getY(), EPSILON);
+        Assert.assertEquals(true, Double.isNaN(p.getCoordinate().getX()));
+        Assert.assertEquals(true, Double.isNaN(p.getCoordinate().getY()));
     }
 
     @Test

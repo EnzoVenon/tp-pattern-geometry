@@ -31,11 +31,6 @@ public class LineString implements Geometry {
 
     @Override
     public boolean isEmpty() {
-        for(int i=0; i<this.points.size(); i++) {
-            if(points.get(i).isEmpty()) {
-                return true;
-            }
-        }
-        return false;
+        return this.points.isEmpty();
     }
 }

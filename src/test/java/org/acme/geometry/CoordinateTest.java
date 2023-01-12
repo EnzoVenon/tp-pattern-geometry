@@ -9,8 +9,8 @@ public class CoordinateTest {
 	@Test
 	public void testDefaultConstructor(){
 		Coordinate c = new Coordinate();
-		Assert.assertEquals(0.0, c.getX(), EPSILON);
-		Assert.assertEquals(0.0, c.getY(), EPSILON);
+		Assert.assertEquals(true, Double.isNaN(c.getX()));
+		Assert.assertEquals(true, Double.isNaN(c.getY()));
 	}
 
 	@Test
