@@ -37,4 +37,14 @@ public class LineStringTest {
         Assert.assertEquals(4.14, l.getPointN(2).getCoordinate().getX(), EPSILON);
         Assert.assertEquals(8.25, l.getPointN(2).getCoordinate().getY(), EPSILON);
     }
+
+    @Test
+    public void testClone(){
+        GeometryFactory fact = new GeometryFactory();
+        LineString l1 = fact.exampleLineString(4);
+        LineString l2 = l1.clone();
+        l2.translate(1, 3.25);
+        Assert.assertEquals(3.14, l1.getPointN(2).getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(5, l1.getPointN(2).getCoordinate().getY(), EPSILON);
+    }
 }
