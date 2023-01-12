@@ -6,11 +6,14 @@ public class GeometryWithCachedEnvelope implements Geometry {
 
     public GeometryWithCachedEnvelope(Geometry original){
         this.original = original;
-        this.cachedEnvelope = original.getEnvelope();
+        this.cachedEnvelope = new Envelope();
     }
 
     @Override
     public Envelope getEnvelope(){
+        if(this.cachedEnvelope.isEmpty()){
+            this.cachedEnvelope = original.getEnvelope();
+        }
         return this.cachedEnvelope;
     }
 
