@@ -57,11 +57,14 @@ public class LineStringTest {
     @Test
     public void testVisitor() throws UnsupportedEncodingException{
         GeometryFactory fact = new GeometryFactory();
-        LineString l = fact.exampleLineString(5);
+        LineString l = fact.exampleLineString(2);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(os);
         LogGeometryVisitor visitor = new LogGeometryVisitor(out);
+        WktVisitor wktVisitor = new WktVisitor();
         l.accept(visitor);
-        Assert.assertEquals("Je suis une polyligne de 5 points.", os.toString("UTF8").trim());
+        l.accept(wktVisitor);
+        Assert.assertEquals("Je suis une polyligne de 2 points.", os.toString("UTF8").trim());
+        Assert.assertEquals("LINESTRING(3.14 5.0,3.14 5.0)", wktVisitor.getResult());
     }
 }

@@ -59,8 +59,11 @@ public class PointTest {
         Point p = fact.examplePoint();
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(os);
-        LogGeometryVisitor visitor = new LogGeometryVisitor(out);
-        p.accept(visitor);
+        LogGeometryVisitor logVisitor = new LogGeometryVisitor(out);
+        WktVisitor wktVisitor = new WktVisitor();
+        p.accept(logVisitor);
+        p.accept(wktVisitor);
         Assert.assertEquals("C'est un point avec x=3.14 et y=5.0", os.toString("UTF8").trim());
+        Assert.assertEquals("POINT(3.14 5.0)", wktVisitor.getResult());
     }
 }
