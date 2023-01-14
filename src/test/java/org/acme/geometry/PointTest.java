@@ -57,14 +57,19 @@ public class PointTest {
     public void testVisitor() throws UnsupportedEncodingException{
         GeometryFactory fact = new GeometryFactory();
         Point p = fact.examplePoint();
+        Point p2 = new Point();
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(os);
         LogGeometryVisitor logVisitor = new LogGeometryVisitor(out);
+        new LogGeometryVisitor();
         WktVisitor wktVisitor = new WktVisitor();
+        WktVisitor wktVisitorEmpty = new WktVisitor();
         p.accept(logVisitor);
         p.accept(wktVisitor);
+        p2.accept(wktVisitorEmpty);
         Assert.assertEquals("C'est un point avec x=3.14 et y=5.0", os.toString("UTF8").trim());
         Assert.assertEquals("POINT(3.14 5.0)", wktVisitor.getResult());
         Assert.assertEquals("POINT(3.14 5.0)", p.asText());
+        Assert.assertEquals("POINT EMPTY", wktVisitorEmpty.getResult());
     }
 }

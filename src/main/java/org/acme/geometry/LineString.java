@@ -6,9 +6,8 @@ import java.util.List;
 public class LineString extends AbstractGeometry {
     private List<Point> points;
 
-
-
     public LineString(){
+        super();
         this.points = new ArrayList<Point>();
     }
 
@@ -39,6 +38,7 @@ public class LineString extends AbstractGeometry {
         for(int i=0; i<this.points.size(); i++){
             this.points.get(i).translate(dx, dy);
         }
+        this.triggerChange();
     }
 
     @Override
